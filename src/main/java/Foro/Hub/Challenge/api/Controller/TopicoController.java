@@ -1,6 +1,5 @@
 package Foro.Hub.Challenge.api.Controller;
 
-import Foro.Hub.Challenge.api.Repository.TopicoRepository;
 import Foro.Hub.Challenge.api.domain.Topico.*;
 import jakarta.validation.Valid;
 import org.hibernate.Hibernate;
@@ -18,8 +17,6 @@ public class TopicoController {
 
     @Autowired
     private TopicoService topicoService;
-    @Autowired
-    private TopicoRepository topicoRepository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -53,6 +50,11 @@ public class TopicoController {
         // Llamar al servicio para actualizar el tópico, el status será actualizado si está en el body
         Topico topicoActualizado = topicoService.actualizarTopico(id, datosRegistroTopico);
         return ResponseEntity.ok(topicoActualizado);
+    }
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void eliminarTopico(@PathVariable Long id) {
+        topicoService.eliminarTopico(id);
     }
 
 }

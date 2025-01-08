@@ -1,10 +1,6 @@
 package Foro.Hub.Challenge.api.domain.Topico;
 
-import Foro.Hub.Challenge.api.domain.Curso.Curso;
-import Foro.Hub.Challenge.api.domain.Curso.DatosRegistroCurso;
-
 import java.time.LocalDateTime;
-
 
 public record DatosListadoTopico(
     Long id,
@@ -12,7 +8,7 @@ public record DatosListadoTopico(
     String mensaje,
     LocalDateTime fechaCreacion,
     Status status,
-    String curso
+    String nombreCurso
     )
 {
     public DatosListadoTopico(Topico topico) {

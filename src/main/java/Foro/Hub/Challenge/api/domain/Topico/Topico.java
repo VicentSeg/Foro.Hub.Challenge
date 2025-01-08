@@ -3,6 +3,7 @@ package Foro.Hub.Challenge.api.domain.Topico;
 import Foro.Hub.Challenge.api.domain.Curso.Curso;
 import Foro.Hub.Challenge.api.domain.Respuesta.Respuesta;
 import Foro.Hub.Challenge.api.domain.Usuario.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -36,7 +37,8 @@ public class Topico {
     private Status status;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id", nullable = false) //Un topico debe pertenecer a un curso
+    @JoinColumn(name = "curso_id", nullable = false)
+    @JsonIgnore
     private Curso curso;
 
     @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, orphanRemoval = true)
