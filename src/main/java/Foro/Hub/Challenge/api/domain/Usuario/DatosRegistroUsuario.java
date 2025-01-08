@@ -1,4 +1,4 @@
-package Foro.Hub.Challenge.api.Usuario;
+package Foro.Hub.Challenge.api.domain.Usuario;
 
 public record DatosRegistroUsuario(
         String nombre,
